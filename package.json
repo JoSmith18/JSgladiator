@@ -1,13 +1,14 @@
 {
-    "name": "JS-Template",
+    "name": "Gladiator-Game",
     "version": "1.0.0",
-    "description": "Base Camp Coding Academy template for javascript projects",
-    "author": "Nate Clark",
+    "description": "A browser baseed gladiator game",
+    "author": "Jo'Tavious Smith",
     "license": "MIT",
     "dependencies": {
         "bootstrap": "^3.3.7",
         "jquery": "^3.2.1",
-        "ramda": "^0.25.0"
+        "ramda": "^0.25.0",
+        "watch": "^1.0.2"
     },
     "devDependencies": {
         "copy-webpack-plugin": "^4.1.1",

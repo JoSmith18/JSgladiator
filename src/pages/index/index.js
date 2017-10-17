@@ -1,19 +1,397 @@
 const $ = require('jquery');
 const other = require('../../lib/other');
 
-function hello() {
-    $('body').append('<h1> Good Bye!</h1>');
-    other.foo();
-}
+var pic = function pic(fighter) {
+    if (fighter.type == 'Saiyan') {
+        if (fighter.health == 0) {
+            return 'https://media.giphy.com/media/20Ix1ltXN2bD2/giphy.gif';
+        }
+        if (fighter.level == 0) {
+            return 'https://media.giphy.com/media/xEiTELdONQ3VS/giphy.gif';
+        } else if (fighter.level == 1) {
+            return 'https://media.giphy.com/media/yo80aIZSXPchq/giphy.gif';
+        } else if (fighter.level == 2) {
+            return 'https://media.giphy.com/media/P5gMU94Pn6RZ6/giphy.gif';
+        } else if (fighter.level == 3) {
+            return 'https://media.giphy.com/media/4h82mhiO3sjvy/giphy.gif';
+        } else if (fighter.level == 4) {
+            return 'https://media.giphy.com/media/ljDpO94IVgrza/giphy.gif';
+        } else if (fighter.level == 5) {
+            return 'https://media.giphy.com/media/igP7luJBffmU0/giphy.gif';
+        } else if (fighter.level == 6) {
+            return 'https://media.giphy.com/media/r3qEzb5XOmwvK/giphy.gif';
+        }
+    } else if (fighter.type == 'Fighter') {
+        if (fighter.health == 0) {
+            return 'https://media.giphy.com/media/kBKA1ruvTggE0/giphy.gif';
+        } else {
+            return 'https://media.giphy.com/media/3o7abzTyxa2ahV2jo4/giphy.gif';
+        }
+    } else if (fighter.type == 'Soulreaper') {
+        if (fighter.health == 0) {
+            return 'https://media.giphy.com/media/Mc8UuLQaD7woU/giphy.gif';
+        }
+        if (fighter.level == 0) {
+            return 'https://media.giphy.com/media/so9C5ZjapDlT2/giphy.gif';
+        } else if (fighter.level == 1) {
+            return 'https://media.giphy.com/media/QmqJu9aQ59FEA/giphy.gif';
+        } else if (fighter.level == 2) {
+            return 'https://media.giphy.com/media/tN5MprjO5rYQ0/giphy.gif';
+        } else if (fighter.level == 3) {
+            return 'https://media.giphy.com/media/IxUmod4jQ14U8/giphy.gif';
+        } else if (fighter.level == 4) {
+            return 'https://media.giphy.com/media/tB2USqFtXGMKs/giphy.gif';
+        } else if (fighter.level == 5) {
+            return 'https://media.giphy.com/media/9qmaIY29ZeQ1O/giphy.gif';
+        } else if (fighter.level == 6) {
+            return 'https://media.giphy.com/media/sBHB9Y0s0YuVq/giphy.gif';
+        }
+    }
+};
+var special_Button = function special_Button(fighter2) {
+    if (fighter2.type == 'Saiyan') {
+        return '<button type="button" class="btn btn-danger btn-md" id="transform">[T]ransform</button></div>';
+    }
+    if (fighter2.type == 'Soulreaper') {
+        return '<button type="button" class="btn btn-danger btn-md" id="hollow">[T]ransform</button></div>';
+    } else {
+        return '</div>';
+    }
+};
 
-function newFunc() {
-    return 2;
-}
-function add(a, b) {
-    return a + b;
-}
+var reg_button = function reg_button() {
+    return '&nbsp options are: <div id="btn"><button type="button" class="btn btn-danger btn-md" id="attack">[A]ttack</button> &nbsp <button type="button" class="btn btn-danger btn-md" id="h">[H]eal</button> &nbsp <button type="button" class="btn btn-danger btn-md" id="skip">[S]kip</button> &nbsp';
+};
 
-$(hello);
+var fighter1_stats = function fighter1_stats(fighter1) {
+    return (
+        '<div class="col-lg-9"><h3>' +
+        'Name-&nbsp&nbsp&nbsp' +
+        fighter1.name +
+        '|&nbsp&nbsp&nbsp' +
+        'Damage_Low-&nbsp&nbsp&nbsp' +
+        fighter1.damage_low +
+        '|&nbsp&nbsp&nbsp' +
+        'Damage_High-&nbsp&nbsp&nbsp' +
+        fighter1.damage_high +
+        '|&nbsp&nbsp&nbsp' +
+        'Health-&nbsp&nbsp&nbsp' +
+        fighter1.health +
+        '|&nbsp&nbsp&nbsp' +
+        'Rage-&nbsp&nbsp&nbsp' +
+        fighter1.rage +
+        '</h3></div>' +
+        '<div class="col-lg-9"><img src="' +
+        pic(fighter1) +
+        '"/>' +
+        '<br>'
+    );
+};
 
-exports.hello = hello;
-exports.add = add;
+var fighter2_stats = function fighter2_stats(fighter2) {
+    return (
+        '<div class="col-lg-9"><h3>' +
+        'Name-&nbsp&nbsp&nbsp' +
+        fighter2.name +
+        '|&nbsp&nbsp&nbsp' +
+        'Damage_Low-&nbsp&nbsp&nbsp' +
+        fighter2.damage_low +
+        '|' +
+        'Damage_High-&nbsp&nbsp&nbsp' +
+        fighter2.damage_high +
+        '|&nbsp&nbsp&nbsp' +
+        'Health-&nbsp&nbsp&nbsp' +
+        fighter2.health +
+        '|&nbsp&nbsp&nbsp' +
+        'Rage-&nbsp&nbsp&nbsp' +
+        fighter2.rage +
+        '</h3></div>' +
+        '<div class="col-lg-9"><img src="' +
+        pic(fighter2) +
+        '"/>'
+    );
+};
+
+var createfighter1 = function createfighter1(G1name) {
+    if ($('#Fighter1').val() == 'Fighter') {
+        var a = other.damage_finder(10, 30);
+        var b = other.damage_finder(10, 30);
+        var fighter1 = new other.Fighter(
+            G1name,
+            Math.min(a, b),
+            Math.max(a, b)
+        );
+    } else if ($('#Fighter1').val() == 'Saiyan') {
+        var a = other.damage_finder(25, 45);
+        var b = other.damage_finder(25, 45);
+        var fighter1 = new other.Saiyan(G1name, Math.min(a, b), Math.max(a, b));
+    } else {
+        var a = other.damage_finder(25, 45);
+        var b = other.damage_finder(25, 45);
+        var fighter1 = new other.Soulreaper(
+            G1name,
+            Math.min(a, b),
+            Math.max(a, b)
+        );
+    }
+    return fighter1;
+};
+
+var createfighter2 = function createfighter2(G2name) {
+    if ($('#Fighter2').val() == 'Fighter') {
+        var a = other.damage_finder(10, 30);
+        var b = other.damage_finder(10, 30);
+        var fighter2 = new other.Fighter(
+            G2name,
+            Math.min(a, b),
+            Math.max(a, b)
+        );
+    } else if ($('#Fighter2').val() == 'Saiyan') {
+        var a = other.damage_finder(25, 45);
+        var b = other.damage_finder(25, 45);
+        var fighter2 = new other.Saiyan(G2name, Math.min(a, b), Math.max(a, b));
+    } else {
+        var a = other.damage_finder(25, 45);
+        var b = other.damage_finder(25, 45);
+        var fighter2 = new other.Soulreaper(
+            G2name,
+            Math.min(a, b),
+            Math.max(a, b)
+        );
+    }
+    return fighter2;
+};
+
+var heal = function heal(attacker, defender) {
+    attacker.heal();
+    $('#maindiv').html(
+        fighter1_stats(attacker) +
+            fighter2_stats(defender) +
+            reg_button() +
+            special_Button(defender)
+    );
+    if (defender.rage < 70) {
+        $('#hollow').prop('disabled', true);
+    }
+    if (defender.rage < 10) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.health >= 1000) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.rage < 70) {
+        $('#transform').prop('disabled', true);
+    }
+    $('#h').on('click', function() {
+        heal(defender, attacker);
+    });
+    $('#skip').on('click', function() {
+        skip(defender, attacker);
+    });
+    $('#attack').on('click', function() {
+        attack(defender, attacker);
+    });
+    $('#transform').on('click', function() {
+        transform(defender, attacker);
+    });
+    $('#hollow').on('click', function() {
+        hollow(defender, attacker);
+    });
+};
+
+var skip = function skip(attacker, defender) {
+    attacker.skip();
+    $('#maindiv').html(
+        fighter1_stats(attacker) +
+            fighter2_stats(defender) +
+            reg_button() +
+            special_Button(defender)
+    );
+    if (defender.rage < 70) {
+        $('#hollow').prop('disabled', true);
+    }
+    if (defender.rage < 10) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.health >= 1000) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.rage < 70) {
+        $('#transform').prop('disabled', true);
+    }
+    $('#h').on('click', function() {
+        heal(defender, attacker);
+    });
+    $('#skip').on('click', function() {
+        skip(defender, attacker);
+    });
+    $('#attack').on('click', function() {
+        attack(defender, attacker);
+    });
+    $('#transform').on('click', function() {
+        transform(defender, attacker);
+    });
+    $('#hollow').on('click', function() {
+        hollow(defender, attacker);
+    });
+};
+
+var hollow = function hollow(attacker, defender) {
+    attacker.hollowForm();
+    $('#maindiv').html(
+        fighter1_stats(attacker) +
+            fighter2_stats(defender) +
+            reg_button() +
+            special_Button(defender)
+    );
+    if (defender.rage < 70) {
+        $('#hollow').prop('disabled', true);
+    }
+    if (defender.rage < 10) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.health >= 1000) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.rage < 70) {
+        $('#transform').prop('disabled', true);
+    }
+    $('#h').on('click', function() {
+        heal(defender, attacker);
+    });
+    $('#skip').on('click', function() {
+        skip(defender, attacker);
+    });
+    $('#attack').on('click', function() {
+        attack(defender, attacker);
+    });
+    $('#transform').on('click', function() {
+        transform(defender, attacker);
+    });
+    $('#hollow').on('click', function() {
+        hollow(defender, attacker);
+    });
+};
+var transform = function transform(attacker, defender) {
+    attacker.Transform();
+    $('#maindiv').html(
+        fighter1_stats(attacker) +
+            fighter2_stats(defender) +
+            reg_button() +
+            special_Button(defender)
+    );
+    if (defender.rage < 70) {
+        $('#hollow').prop('disabled', true);
+    }
+    if (defender.rage < 10) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.health >= 1000) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.rage < 70) {
+        $('#transform').prop('disabled', true);
+    }
+    $('#h').on('click', function() {
+        heal(defender, attacker);
+    });
+    $('#skip').on('click', function() {
+        skip(defender, attacker);
+    });
+    $('#attack').on('click', function() {
+        attack(defender, attacker);
+    });
+    $('#transform').on('click', function() {
+        transform(defender, attacker);
+    });
+    $('#hollow').on('click', function() {
+        hollow(defender, attacker);
+    });
+};
+var attack = function attack(attacker, defender) {
+    attacker.attack(defender);
+    $('#maindiv').html(
+        fighter1_stats(attacker) +
+            fighter2_stats(defender) +
+            reg_button() +
+            special_Button(defender)
+    );
+    if (defender.isDead() == true) {
+        return $('#maindiv').html(
+            '<div class="jumbotron"><h1>' +
+                attacker.name +
+                '&nbsp Wins</h1></div>' +
+                fighter1_stats(attacker) +
+                fighter2_stats(defender)
+        );
+    }
+    if (defender.rage < 70) {
+        $('#hollow').prop('disabled', true);
+    }
+    if (defender.rage < 10) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.health >= 1000) {
+        $('#h').prop('disabled', true);
+    }
+    if (defender.rage < 70) {
+        $('#transform').prop('disabled', true);
+    }
+    $('#h').on('click', function() {
+        heal(defender, attacker);
+    });
+    $('#skip').on('click', function() {
+        skip(defender, attacker);
+    });
+    $('#attack').on('click', function() {
+        attack(defender, attacker);
+    });
+    $('#transform').on('click', function() {
+        transform(defender, attacker);
+    });
+    $('#hollow').on('click', function() {
+        hollow(defender, attacker);
+    });
+};
+$('#initialform').on('click', function() {
+    fighter1 = createfighter1($('#G1').val());
+    fighter2 = createfighter2($('#G2').val());
+    $('#maindiv').html(
+        fighter1_stats(fighter1) +
+            fighter2_stats(fighter2) +
+            '<button class="btn btn-danger btn-md" id="start">Begin</button>'
+    );
+    $('#start').on('click', function() {
+        $('#maindiv').html(
+            fighter1_stats(fighter1) +
+                fighter2_stats(fighter2) +
+                reg_button() +
+                special_Button(fighter1)
+        );
+        if (fighter1.rage < 70) {
+            $('#hollow').prop('disabled', true);
+        }
+
+        if (fighter1.rage < 10) {
+            $('#h').prop('disabled', true);
+        }
+        if (fighter1.health >= 1000) {
+            $('#h').prop('disabled', true);
+        }
+        if (fighter1.rage < 70) {
+            $('#transform').prop('disabled', true);
+        }
+        $('#h').on('click', function() {
+            heal(fighter1, fighter2);
+        });
+        $('#skip').on('click', function() {
+            skip(fighter1, fighter2);
+        });
+        $('#attack').on('click', function() {
+            attack(fighter1, fighter2);
+        });
+        $('#hollow').on('click', function() {
+            hollow(fighter1, fighter2);
+        });
+    });
+});
