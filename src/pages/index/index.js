@@ -60,12 +60,12 @@ var special_Button = function special_Button(fighter2) {
 };
 
 var reg_button = function reg_button() {
-    return '&nbsp options are: <div id="btn"><button type="button" class="btn btn-danger btn-md" id="attack">[A]ttack</button> &nbsp <button type="button" class="btn btn-danger btn-md" id="h">[H]eal</button> &nbsp <button type="button" class="btn btn-danger btn-md" id="skip">[S]kip</button> &nbsp';
+    return '&nbsp options are: <div class="col-lg-6" id="btn"><button type="button" class="btn btn-danger btn-md" id="attack">[A]ttack</button> &nbsp <button type="button" class="btn btn-danger btn-md" id="h">[H]eal</button> &nbsp <button type="button" class="btn btn-danger btn-md" id="skip">[S]kip</button> &nbsp';
 };
 
 var fighter1_stats = function fighter1_stats(fighter1) {
     return (
-        '<div class="col-lg-9"><h3>' +
+        '<div class="container col-lg-12"><h3>' +
         'Name-&nbsp&nbsp&nbsp' +
         fighter1.name +
         '|&nbsp&nbsp&nbsp' +
@@ -81,16 +81,19 @@ var fighter1_stats = function fighter1_stats(fighter1) {
         'Rage-&nbsp&nbsp&nbsp' +
         fighter1.rage +
         '</h3></div>' +
-        '<div class="col-lg-9"><img src="' +
+        '<div class="container col-lg-12"><img src="' +
         pic(fighter1) +
-        '" class="img-fluid" alt="Responsive imgage"/>' +
+        '" class="img-fluid" alt="Responsive imgage" height="auto" max-width="100%"/>' +
+        '<div class="progress progress-striped active col-lg-10"><div class="progress-bar" style="width:' +
+        fighter1.health +
+        '%"></div></div>' +
         '<br>'
     );
 };
 
 var fighter2_stats = function fighter2_stats(fighter2) {
     return (
-        '<div class="col-lg-9"><h3>' +
+        '<div class="container col-lg-12"><h3>' +
         'Name-&nbsp&nbsp&nbsp' +
         fighter2.name +
         '|&nbsp&nbsp&nbsp' +
@@ -106,9 +109,12 @@ var fighter2_stats = function fighter2_stats(fighter2) {
         'Rage-&nbsp&nbsp&nbsp' +
         fighter2.rage +
         '</h3></div>' +
-        '<div class="col-lg-9"><img src="' +
+        '<div class="container col-lg-12"><img src="' +
         pic(fighter2) +
-        '" class="img-fluid" alt="Responsive imgage"/>'
+        '" class="img-fluid" alt="Responsive imgage" height="auto"  max-width="100%";/>' +
+        '<div class="progress progress-striped active col-lg-10"><div class="progress-bar" style="width:' +
+        fighter2.health +
+        '%"></div></div>'
     );
 };
 
@@ -318,9 +324,9 @@ var attack = function attack(attacker, defender) {
     );
     if (defender.isDead() == true) {
         return $('#maindiv').html(
-            '<div class="jumbotron"><h1>' +
+            '<div class="jumbotron"><center><h1>' +
                 attacker.name +
-                '&nbsp Wins</h1></div>' +
+                '&nbsp Wins</h1></center></div>' +
                 fighter1_stats(attacker) +
                 fighter2_stats(defender)
         );
