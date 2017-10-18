@@ -135,7 +135,7 @@ var reg_button = function reg_button() {
 
 var fighter1_stats = function fighter1_stats(fighter1) {
     return (
-        '<div class="container col-lg-12"><h3>' +
+        '<div class="container col-lg-12 col-sm-8 stats"><h3>' +
         'Name-&nbsp&nbsp&nbsp' +
         fighter1.name +
         '|&nbsp&nbsp&nbsp' +
@@ -151,19 +151,19 @@ var fighter1_stats = function fighter1_stats(fighter1) {
         'Rage-&nbsp&nbsp&nbsp' +
         fighter1.rage +
         '</h3></div>' +
-        '<div class="container col-lg-12"><img src="' +
+        '<div class="container col-lg-12 col-sm-8"><img src="' +
         pic(fighter1) +
         '" class="img-fluid" alt="Responsive imgage" height="auto" max-width="100%"/>' +
         '<div class="progress progress-striped active col-lg-10"><div class="progress-bar" style="width:' +
         fighter1.health +
-        '%"></div></div>' +
+        '"></div></div>' +
         '<br>'
     );
 };
 
 var fighter2_stats = function fighter2_stats(fighter2) {
     return (
-        '<div class="container col-lg-12"><h3>' +
+        '<div class="container col-lg-12 col-sm-8 stats"><h3>' +
         'Name-&nbsp&nbsp&nbsp' +
         fighter2.name +
         '|&nbsp&nbsp&nbsp' +
@@ -179,12 +179,12 @@ var fighter2_stats = function fighter2_stats(fighter2) {
         'Rage-&nbsp&nbsp&nbsp' +
         fighter2.rage +
         '</h3></div>' +
-        '<div class="container col-lg-12"><img src="' +
+        '<div class="container col-lg-12 col-sm-8"><img src="' +
         pic(fighter2) +
         '" class="img-fluid" alt="Responsive imgage" height="auto"  max-width="100%";/>' +
         '<div class="progress progress-striped active col-lg-10"><div class="progress-bar" style="width:' +
         fighter2.health +
-        '%"></div></div>'
+        '"></div></div>'
     );
 };
 
