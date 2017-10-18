@@ -86,7 +86,7 @@ var fighter1_stats = function fighter1_stats(fighter1) {
         '" class="img-fluid" alt="Responsive imgage" height="auto" max-width="100%"/>' +
         '<div class="progress progress-striped active col-lg-10"><div class="progress-bar" style="width:' +
         fighter1.health +
-        '"></div></div>' +
+        '%"></div></div>' +
         '<br>'
     );
 };
@@ -114,7 +114,7 @@ var fighter2_stats = function fighter2_stats(fighter2) {
         '" class="img-fluid" alt="Responsive imgage" height="auto"  max-width="100%";/>' +
         '<div class="progress progress-striped active col-lg-10"><div class="progress-bar" style="width:' +
         fighter2.health +
-        '"></div></div>'
+        '%"></div></div>'
     );
 };
 
