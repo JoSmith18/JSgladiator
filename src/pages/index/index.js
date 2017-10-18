@@ -4,47 +4,47 @@ const other = require('../../lib/other');
 var pic = function pic(fighter) {
     if (fighter.type == 'Saiyan') {
         if (fighter.health == 0) {
-            return 'https://media.giphy.com/media/20Ix1ltXN2bD2/giphy.gif';
+            return '../../assets/endoffightsaiyan.gif';
         }
         if (fighter.level == 0) {
-            return 'https://media.giphy.com/media/xEiTELdONQ3VS/giphy.gif';
+            return '../../assets/base.gif';
         } else if (fighter.level == 1) {
-            return 'https://media.giphy.com/media/yo80aIZSXPchq/giphy.gif';
+            return '../../assets/saiyan1.gif';
         } else if (fighter.level == 2) {
-            return 'https://media.giphy.com/media/P5gMU94Pn6RZ6/giphy.gif';
+            return '../../assets/saiyan2.gif';
         } else if (fighter.level == 3) {
-            return 'https://media.giphy.com/media/4h82mhiO3sjvy/giphy.gif';
+            return '../../assets/saiyan3.gif';
         } else if (fighter.level == 4) {
-            return 'https://media.giphy.com/media/ljDpO94IVgrza/giphy.gif';
+            return '../../assets/saiyan4.gif';
         } else if (fighter.level == 5) {
-            return 'https://media.giphy.com/media/igP7luJBffmU0/giphy.gif';
+            return '../../assets/saiyanblue.gif';
         } else if (fighter.level == 6) {
-            return 'https://media.giphy.com/media/r3qEzb5XOmwvK/giphy.gif';
+            return '../../assets/saiyang.gif';
         }
     } else if (fighter.type == 'Fighter') {
         if (fighter.health == 0) {
-            return 'https://media.giphy.com/media/kBKA1ruvTggE0/giphy.gif';
+            return '../../assets/endoffight.gif';
         } else {
             return 'https://media.giphy.com/media/3o7abzTyxa2ahV2jo4/giphy.gif';
         }
     } else if (fighter.type == 'Soulreaper') {
         if (fighter.health == 0) {
-            return 'https://media.giphy.com/media/Mc8UuLQaD7woU/giphy.gif';
+            return '../../assets/endoffightreap.gif';
         }
         if (fighter.level == 0) {
-            return 'https://media.giphy.com/media/so9C5ZjapDlT2/giphy.gif';
+            return '../../assets/basereaper.gif';
         } else if (fighter.level == 1) {
-            return 'https://media.giphy.com/media/QmqJu9aQ59FEA/giphy.gif';
+            return '../../assets/1reaper.gif';
         } else if (fighter.level == 2) {
-            return 'https://media.giphy.com/media/tN5MprjO5rYQ0/giphy.gif';
+            return '../../assets/2reaper.gif';
         } else if (fighter.level == 3) {
-            return 'https://media.giphy.com/media/IxUmod4jQ14U8/giphy.gif';
+            return '../../assets/3reaper.gif';
         } else if (fighter.level == 4) {
-            return 'https://media.giphy.com/media/tB2USqFtXGMKs/giphy.gif';
+            return '../../assets/4reaper.gif';
         } else if (fighter.level == 5) {
-            return 'https://media.giphy.com/media/9qmaIY29ZeQ1O/giphy.gif';
+            return '../../assets/5reaper.gif';
         } else if (fighter.level == 6) {
-            return 'https://media.giphy.com/media/sBHB9Y0s0YuVq/giphy.gif';
+            return '../../assets/6reaper.gif';
         }
     }
 };
@@ -83,7 +83,7 @@ var fighter1_stats = function fighter1_stats(fighter1) {
         '</h3></div>' +
         '<div class="col-lg-9"><img src="' +
         pic(fighter1) +
-        '"/>' +
+        '" class="img-fluid" alt="Responsive imgage"/>' +
         '<br>'
     );
 };
@@ -108,7 +108,7 @@ var fighter2_stats = function fighter2_stats(fighter2) {
         '</h3></div>' +
         '<div class="col-lg-9"><img src="' +
         pic(fighter2) +
-        '"/>'
+        '" class="img-fluid" alt="Responsive imgage"/>'
     );
 };
 

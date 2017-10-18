@@ -50,7 +50,7 @@ function Soulreaper(name, damage_low, damage_high) {
     this.heal = function heal() {
         var success = false;
         if (this.rage >= 10) {
-            this.health = Math.min(this.health + 5, 1000);
+            this.health = Math.min(this.health + 15, 1000);
             this.rage = Math.max(this.rage - 10, 0);
             success = true;
         }
@@ -111,7 +111,7 @@ function Saiyan(name, damage_low, damage_high) {
     this.heal = function heal() {
         var success = false;
         if (this.rage >= 10) {
-            this.health = Math.min(this.health + 5, 1000);
+            this.health = Math.min(this.health + 15, 1000);
             this.rage = Math.max(this.rage - 10, 0);
             success = true;
         }
