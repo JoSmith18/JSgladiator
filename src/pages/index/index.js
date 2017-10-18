@@ -65,56 +65,57 @@ var reg_button = function reg_button() {
 
 var fighter1_stats = function fighter1_stats(fighter1) {
     return (
-        '<div class="container col-lg-12 col-sm-8 stats"><h3>' +
-        'Name-&nbsp&nbsp&nbsp' +
+        '<div class="col-lg-12 col-sm-12 "><h3 class="stats">' +
+        'Name-&nbsp;&nbsp;' +
         fighter1.name +
-        '|&nbsp&nbsp&nbsp' +
-        'Damage_Low-&nbsp&nbsp&nbsp' +
+        '</h3><h4>' +
+        'Damage_Low-&nbsp;&nbsp;' +
         fighter1.damage_low +
-        '|&nbsp&nbsp&nbsp' +
-        'Damage_High-&nbsp&nbsp&nbsp' +
+        '|&nbsp;&nbsp;' +
+        'Damage_High-&nbsp;&nbsp;' +
         fighter1.damage_high +
-        '|&nbsp&nbsp&nbsp' +
-        'Health-&nbsp&nbsp&nbsp' +
+        '|&nbsp;&nbsp;' +
+        'Health-&nbsp;&nbsp;' +
         fighter1.health +
-        '|&nbsp&nbsp&nbsp' +
-        'Rage-&nbsp&nbsp&nbsp' +
+        '|&nbsp;&nbsp;' +
+        'Rage-&nbsp;&nbsp;' +
         fighter1.rage +
-        '</h3></div>' +
-        '<div class="container col-lg-12 col-sm-8"><img src="' +
+        '</h4>' +
+        '<div class="col-lg-12 col-sm-12"><img src="' +
         pic(fighter1) +
         '" class="img-fluid" alt="Responsive imgage" height="auto" max-width="100%"/>' +
         '<div class="progress progress-striped active col-lg-10"><div class="progress-bar" style="width:' +
         fighter1.health +
         '%"></div></div>' +
-        '<br>'
+        '</div>'
     );
 };
 
 var fighter2_stats = function fighter2_stats(fighter2) {
     return (
-        '<div class="container col-lg-12 col-sm-8 stats"><h3>' +
-        'Name-&nbsp&nbsp&nbsp' +
+        '<div class="col-lg-12 col-sm-12"><h3 class="stats">' +
+        'Name-&nbsp;&nbsp;' +
         fighter2.name +
-        '|&nbsp&nbsp&nbsp' +
-        'Damage_Low-&nbsp&nbsp&nbsp' +
+        '</h3><h4>' +
+        'Damage_Low-&nbsp;&nbsp;' +
         fighter2.damage_low +
         '|' +
-        'Damage_High-&nbsp&nbsp&nbsp' +
+        'Damage_High-&nbsp;&nbsp;' +
         fighter2.damage_high +
-        '|&nbsp&nbsp&nbsp' +
-        'Health-&nbsp&nbsp&nbsp' +
+        '|&nbsp;&nbsp;' +
+        'Health-&nbsp;&nbsp;' +
         fighter2.health +
-        '|&nbsp&nbsp&nbsp' +
-        'Rage-&nbsp&nbsp&nbsp' +
+        '|&nbsp;&nbsp;' +
+        'Rage-&nbsp;&nbsp;' +
         fighter2.rage +
-        '</h3></div>' +
-        '<div class="container col-lg-12 col-sm-8"><img src="' +
+        '</h4>' +
+        '<div class="col-lg-12 col-sm-12"><img src="' +
         pic(fighter2) +
         '" class="img-fluid" alt="Responsive imgage" height="auto"  max-width="100%";/>' +
         '<div class="progress progress-striped active col-lg-10"><div class="progress-bar" style="width:' +
         fighter2.health +
-        '%"></div></div>'
+        '%"></div></div>' +
+        '</div>'
     );
 };
 
