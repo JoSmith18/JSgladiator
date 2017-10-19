@@ -65,10 +65,10 @@ var reg_button = function reg_button() {
 
 var fighter1_stats = function fighter1_stats(fighter1) {
     return (
-        '<div class="col-lg-12 col-sm-12 "><h3 class="stats">' +
+        '<div class="col-lg-12 col-sm-12 "><center><h3 class="stats">' +
         'Name-&nbsp;&nbsp;' +
         fighter1.name +
-        '</h3><h4>' +
+        '</h3></center><h4>' +
         'Damage_Low-&nbsp;&nbsp;' +
         fighter1.damage_low +
         '|&nbsp;&nbsp;' +
@@ -93,10 +93,10 @@ var fighter1_stats = function fighter1_stats(fighter1) {
 
 var fighter2_stats = function fighter2_stats(fighter2) {
     return (
-        '<div class="col-lg-12 col-sm-12"><h3 class="stats">' +
+        '<div class="col-lg-12 col-sm-12"><center><h3 class="stats">' +
         'Name-&nbsp;&nbsp;' +
         fighter2.name +
-        '</h3><h4>' +
+        '</h3></center><h4>' +
         'Damage_Low-&nbsp;&nbsp;' +
         fighter2.damage_low +
         '|' +
